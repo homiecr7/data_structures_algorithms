@@ -16,3 +16,5 @@ print(reverse("stones into turned be can cones"))
 def reverse2(str):
     return " ".join(str.split()[::-1])
 print(reverse2("stones into turned be can cones"))
+
+
