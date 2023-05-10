@@ -18,19 +18,28 @@ def mergeSortedArray(array):
         return array[0]
     
     merged = []
-    index1 = array[0]
-    index2 = array[1]
-    
-    i = 0
-    while(i < len(max(array[0], array[1]))):
-        if index1[i] > index2[i]:
-            merged.append(index2[i])
-            merged.append(index1[i])
-            i += 1
+    firstArray = array[0]
+    secArray = array[1]
 
+    first_index = second_index = 0
+    flag = 0
+
+    while (len(firstArray) - 1 >= first_index and len(secArray) - 1 > second_index):
+        print(len(firstArray) - 1, first_index, second_index)
+        if firstArray[first_index] > secArray[second_index]:
+            merged.append(secArray[second_index])
+            second_index += 1
         else:
-            merged.append(index1[i])
-            merged.append(index2[i])
-            i += 1
+            merged.append(firstArray[first_index])
+            first_index += 1
+        if first_index == len(firstArray) - 1:
+            flag = 1
+    
+    if flag == 1:
+        for item in secArray[second_index:]:
+            merged.append(item)
+    else:
+        for item in firstArray[first_index:]:
+            merged.append(item)
     return merged
 print(mergeSortedArray(merge))
