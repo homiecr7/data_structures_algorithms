@@ -30,11 +30,18 @@ class hash_table():
             return "Key doesn't exist" # if key doesnt exist
         else: # if hash doesnt exist
             return "Key doesn't exist"
+    
+    def key(self):
+        if not len(self.data):
+            return "No keys exist"
+        return self.data
+
 
 new_hash = hash_table(2)
-new_hash.set("one", 1)
-new_hash.set("two", 2)
-new_hash.set("five", 5)
-new_hash.set('three',3)
-new_hash.set('four',4)
+# new_hash.set("one", 1)
+# new_hash.set("two", 2)
+# new_hash.set("five", 5)
+# new_hash.set('three',3)
+# new_hash.set('four',4)
 print(new_hash)
+print(new_hash.key())
