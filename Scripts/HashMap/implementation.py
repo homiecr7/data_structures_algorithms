@@ -32,11 +32,14 @@ class hash_table():
             return "Key doesn't exist"
     
     def key(self):
-        if not len(self.data):
-            return "No keys exist"
-        return self.data
-
-
+        keys = []
+        for i in self.data: # loop over the whole length of data
+            if i is not None: # will go inside if index is not none
+                for j in i: # will loop over nested object or collision
+                    if j is not None: # will go inside if it is not none
+                        keys.append(j[0])
+        return keys
+    
 new_hash = hash_table(2)
 # new_hash.set("one", 1)
 # new_hash.set("two", 2)
