@@ -43,6 +43,28 @@ class LinkedList():
             newNode.next = self.head
             self.head = newNode
             self.length += 1
+            return
+    
+    def insert(self, position, value):
+        newNode = Node(value)
+        if position >= self.length:
+            print("Since insertion is in last running append function")
+            self.tail.next = newNode
+            self.tail = newNode
+            self.length += 1
+            return
+        elif position == 0:
+            if self.head == None:
+                print("No linked list is present")
+                return
+            else:
+                newNode.next = self.head
+                self.head = newNode
+                self.length += 1
+                return
+        else:
+            for i in range(self.length):
+                print(i)
 
 myLinkedList = LinkedList()
 myLinkedList.append(5)
@@ -50,4 +72,5 @@ myLinkedList.append(6)
 myLinkedList.append(8)
 myLinkedList.prepend(2)
 myLinkedList.prepend(7)
+myLinkedList.insert(2, 9)
 myLinkedList.print_list()
