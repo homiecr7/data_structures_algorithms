@@ -71,8 +71,17 @@ class LinkedList():
                     self.length += 1
                 else:
                     current_node = current_node.next
+    def remove(self, index):
+        currentNode = self.head
+        counter = 0
+        while counter != index - 1:
+            currentNode = currentNode.next
+            counter += 1
+        deletedNode = currentNode.next
+        currentNode.next = deletedNode.next
+        del deletedNode
+        self.length -= 1
                     
-
 myLinkedList = LinkedList()
 myLinkedList.append(5)
 myLinkedList.append(6)
@@ -82,3 +91,8 @@ myLinkedList.prepend(7)
 myLinkedList.insert(2, 9)
 myLinkedList.insert(28, 19)
 myLinkedList.print_list()
+myLinkedList.remove(3)
+myLinkedList.remove(1)
+myLinkedList.print_list()
+
+
