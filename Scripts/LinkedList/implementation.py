@@ -63,8 +63,15 @@ class LinkedList():
                 self.length += 1
                 return
         else:
+            current_node = self.head
             for i in range(self.length):
-                print(i)
+                if i == position - 1:
+                    newNode.next = current_node.next
+                    current_node.next = newNode
+                    self.length += 1
+                else:
+                    current_node = current_node.next
+                    
 
 myLinkedList = LinkedList()
 myLinkedList.append(5)
@@ -73,4 +80,5 @@ myLinkedList.append(8)
 myLinkedList.prepend(2)
 myLinkedList.prepend(7)
 myLinkedList.insert(2, 9)
+myLinkedList.insert(28, 19)
 myLinkedList.print_list()
