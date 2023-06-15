@@ -31,7 +31,6 @@ class LinkedList():
             newNode.previous = self.tail
             self.tail.next = newNode
             self.tail = newNode
-            print(self.tail)
 
 newLinkedList = LinkedList()
 newLinkedList.append(5)

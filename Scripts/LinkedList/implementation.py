@@ -81,6 +81,9 @@ class LinkedList():
         currentNode.next = deletedNode.next
         del deletedNode
         self.length -= 1
+    
+    def reverse(self):
+        
                     
 myLinkedList = LinkedList()
 myLinkedList.append(5)
