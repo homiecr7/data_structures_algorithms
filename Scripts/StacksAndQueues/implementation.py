@@ -46,10 +46,17 @@ class Stack():
     def peak(self):
         print(self.top.data)
 
+    def isEmpty(self):
+        if self.length == 0:
+            print(True)
+        else:
+            print(False)
+        
+
 newStack = Stack()
 newStack.push(5)
 newStack.push(6)
 newStack.pop()
 newStack.pop()
-newStack.pop()
+newStack.isEmpty()
 
