@@ -36,6 +36,7 @@ class Stack():
             currentNode = self.bottom
             while length != self.length - 2:
                 currentNode = currentNode.next
+                length += 1
             tempNode = self.top
             print(f"poped data: {tempNode.data}")
             del tempNode
@@ -54,9 +55,14 @@ class Stack():
         
 
 newStack = Stack()
-newStack.push(5)
-newStack.push(6)
+newStack.push('google')
+newStack.push('udemy')
+newStack.push('discord')
+newStack.peak()
 newStack.pop()
+newStack.peak()
 newStack.pop()
-newStack.isEmpty()
+newStack.peak()
+newStack.pop()
+
 
