@@ -1,0 +1,55 @@
+class Node():
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class Stack():
+    def __init__(self):
+        self.top = None
+        self.bottom = None
+        self.length = 0
+    
+    def push(self, value):
+        newNode = Node(value)
+        if self.length == 0:
+            self.top = newNode
+            self.bottom = newNode
+            self.length += 1
+        else:
+            self.top.next = newNode
+            self.top = newNode
+            self.length += 1
+    
+    def pop(self):
+        if self.length == 1:
+            tempNode = self.bottom
+            self.bottom = None
+            self.top = None
+            self.length -= 1
+            print(f"This is the last plate in the stack with value: {tempNode.data}")
+
+        elif self.length == 0:
+            print("stack is empty")
+
+        else:
+            length = 0
+            currentNode = self.bottom
+            while length != self.length - 2:
+                currentNode = currentNode.next
+            tempNode = self.top
+            print(f"poped data: {tempNode.data}")
+            del tempNode
+            currentNode.next = None
+            self.top = currentNode
+            self.length -= 1
+             
+    def peak(self):
+        print(self.top.data)
+
+newStack = Stack()
+newStack.push(5)
+newStack.push(6)
+newStack.pop()
+newStack.pop()
+newStack.pop()
+
