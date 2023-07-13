@@ -28,6 +28,23 @@ class Tree():
                     else:
                         currentNode.right = newNode
                         return
+                    
+    def lookup(self, value):
+        if not self.root:
+            print("No tree found")
+        else:
+            currentNode = self.root
+            while currentNode:
+                if currentNode.data > value:
+                    currentNode = currentNode.left
+                elif currentNode.data < value:
+                    currentNode = currentNode.right
+                elif currentNode.data == value:
+                    print("Found")
+                    return
+            print("Not Found")
+
+
 
 myTree = Tree()
 myTree.insert(9)
@@ -37,3 +54,4 @@ myTree.insert(6)
 myTree.insert(1)
 myTree.insert(15)
 myTree.insert(170)
+myTree.lookup(140)
