@@ -17,5 +17,4 @@ def fibonacciRecursive(num):
     else:
         return fibonacciRecursive(num - 1) + fibonacciRecursive(num - 2)
     
-print(fibonacciRecursive(2))    
-
+print(fibonacciRecursive(2))
