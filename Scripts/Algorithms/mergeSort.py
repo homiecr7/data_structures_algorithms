@@ -21,6 +21,7 @@ def merge(left, right):
             array.append(right[rightIndex])
             rightIndex += 1
     return array + left[leftIndex:] + right[rightIndex:]
-
 print(mergeSort([2, 5, 8, 10, 11, 3, 1, 4]))
+
+
 
