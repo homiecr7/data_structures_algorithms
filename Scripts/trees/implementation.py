@@ -72,6 +72,46 @@ class Tree():
             queue.append(currentNode.right)
 
         return self.breadthFirstSearchR(visited, queue)
+    
+    def DFSInOrder(self):
+        return traverseInOrder(self.root, [])
+    
+    def DFSPreOrder(self):
+        return traversePreOrder(self.root, [])
+    
+    def DFSPostOrder(self):
+        return traversePostOrder(self.root, [])
+    
+
+def traverseInOrder(node, visited):
+    print(node.data)
+    if node.left:
+        traverseInOrder(node.left, visited)
+    visited.append(node.data)
+    if node.right:
+        traverseInOrder(node.right, visited)
+
+    return visited
+
+def traversePreOrder(node, visited):
+    print(node.data)
+    visited.append(node.data)
+    if node.left:
+        traversePreOrder(node.left, visited)
+    if node.right:
+        traversePreOrder(node.right, visited)
+
+    return visited
+
+def traversePostOrder(node, visited):
+    if node.left:
+        traversePostOrder(node.left, visited)
+    if node.right:
+        traversePostOrder(node.right, visited)
+    visited.append(node.data)
+
+    return visited
+
         
 
 myTree = Tree()
@@ -83,8 +123,9 @@ myTree.insert(10)
 myTree.insert(120)
 myTree.insert(130)
 # myTree.lookup(140)
-print(myTree.breadthFirstSearch())
-print(myTree.breadthFirstSearchR([], [myTree.root]))
+# print(myTree.breadthFirstSearch())
+# print(myTree.breadthFirstSearchR([], [myTree.root]))
+print(myTree.DFSPostOrder())
 
 #     9
 #  4      20
