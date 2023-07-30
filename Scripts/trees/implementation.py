@@ -43,15 +43,49 @@ class Tree():
                     print("Found")
                     return
             print("Not Found")
+    
+    def breadthFirstSearch(self):
+        currentNode = self.root
+        visited = []
+        queue = []
+        queue.append(currentNode)
 
+        while len(queue) > 0:
+            currentNode = queue.pop(0)
+            visited.append(currentNode.data)
 
+            if currentNode.left:
+                queue.append(currentNode.left)
+            if currentNode.right:
+                queue.append(currentNode.right)
+        return visited
+    
+    def breadthFirstSearchR(self, visited, queue):
+        if not queue:
+            return visited
+        currentNode = queue.pop(0)
+        visited.append(currentNode.data)
+
+        if currentNode.left:
+            queue.append(currentNode.left)
+        if currentNode.right:
+            queue.append(currentNode.right)
+
+        return self.breadthFirstSearchR(visited, queue)
+        
 
 myTree = Tree()
 myTree.insert(9)
 myTree.insert(4)
 myTree.insert(20)
-myTree.insert(6)
-myTree.insert(1)
-myTree.insert(15)
-myTree.insert(170)
-myTree.lookup(140)
+myTree.insert(8)
+myTree.insert(10)
+myTree.insert(120)
+myTree.insert(130)
+# myTree.lookup(140)
+print(myTree.breadthFirstSearch())
+print(myTree.breadthFirstSearchR([], [myTree.root]))
+
+#     9
+#  4      20
+# 8 10  120 130
